@@ -19,7 +19,7 @@
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
   },
   "prettier": {
-    "printWidth": 90,
+    "printWidth": 120,
     "bracketSpacing": true,
     "trailingComma": "es5"
   },
