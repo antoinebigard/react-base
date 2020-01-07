@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import routes from "../../routes.json";
 
-import "./style/notFound.css";
+import "./notFound.css";
 
 const NotFound = () => (
   <div className="not-found">
