@@ -1,4 +1,7 @@
 import React from "react";
+
+import routes from "./routes.json";
+
 import "./App.css";
 
 function App() {
