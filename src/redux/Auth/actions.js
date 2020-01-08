@@ -17,3 +17,15 @@ case "RESET_USER_DATA":
         CHANGE_PASSWORD: 'auth/CHANGE_PASSWORD',
         COMPLETE_NEW_PASSWORD: 'auth/COMPLETE_NEW_PASSWORD',
     };
+
+
+    import { Auth } from 'aws-amplify';
+
+    Auth.signIn(username, password);
+
+
+
+    import Amplify from 'aws-amplify';
+
+
+    Amplify.configure(ampConfig);
