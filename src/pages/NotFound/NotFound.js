@@ -1,8 +1,5 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-
-import routes from "../../routes.json";
 
 import "./notFound.css";
 
@@ -15,9 +12,6 @@ const NotFound = () => (
         <p className="hmpg">
           <Link to="/" className="back">
             Back To Home
-          </Link>
-          <Link to={routes.SUPPORT} className="back">
-            Contact Support
           </Link>
         </p>
       </div>

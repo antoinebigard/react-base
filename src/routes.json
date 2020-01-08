@@ -1,4 +1,4 @@
 {
-    "SUPPORT": "/support",
-    "NOTFOUND": "/404"
+    "NOTFOUND": "/404",
+    "SIGNIN": "/signin"
 }
