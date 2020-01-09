@@ -1,5 +1,7 @@
 import React from "react";
 
+import UserContainer from "../../components/UserContainer";
+
 import "./landing.css";
 
 export default () => (
@@ -11,6 +13,7 @@ export default () => (
       <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
         Learn React
       </a>
+      <UserContainer />
     </header>
   </div>
 );
