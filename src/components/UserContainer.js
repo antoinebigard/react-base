@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+//import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { fetchUsers } from "../redux/TestAsync/actions";
@@ -9,7 +10,7 @@ const UserContainer = () => {
 
   //   useEffect(() => {
   //     dispatch(fetchUsers());
-  //   });
+  //   }, [dispatch]);
 
   return (
     <div>
