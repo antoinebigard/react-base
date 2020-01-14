@@ -1,13 +1,19 @@
 import React from "react";
 
+import TopBar from "../TopBar";
+import Footer from "../Footer";
+
 import "./layout.css";
 
 const Layout = ({ children }) => {
   return (
-    <div className="App">
-      <header className="App-header">Header</header>
-      <div>{children}</div>
-    </div>
+    <>
+      <TopBar />
+      <div className="App">
+        <div>{children}</div>
+      </div>
+      <Footer />
+    </>
   );
 };
 
