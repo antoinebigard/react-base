@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { signOut } from "../../redux/Auth/actions";
 
-const Profil = () => {
+const Profile = () => {
   const { user, isLoading } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
@@ -16,4 +16,4 @@ const Profil = () => {
   );
 };
 
-export default Profil;
+export default Profile;

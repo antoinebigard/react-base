@@ -92,23 +92,19 @@ export const signOut = () => {
   };
 };
 
-export const changePassword = ({ username, newPassword }) => {
+export const changePassword = ({ user, email, newPassword }) => {
   return async dispatch => {
     try {
-      /*const { requiredAttributes } = user.challengeParam; // the array of required attributes, e.g ['email', 'phone_number']
-      // You need to get the new password and required attributes from the UI inputs
-      // and then trigger the following function with a button click
-      // For example, the email and phone_number are required attributes
-      const { username, email, phone_number } = getInfoFromUserInput();
+      //const { requiredAttributes } = user.challengeParam;
+      //const { username, email, phone_number } = getInfoFromUserInput();
       const loggedUser = await Auth.completeNewPassword(
         user, // the Cognito User Object
         newPassword, // the new password
-        // OPTIONAL, the required attributes
         {
           email,
-          phone_number,
         }
-      );*/
+      );
+      dispatch(fetchUserSuccess(loggedUser));
     } catch (e) {
       dispatch(fetchUserFailure(e.message || "Unexpected error"));
     }
