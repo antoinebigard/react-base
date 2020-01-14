@@ -1,6 +1,7 @@
 import React from "react";
 
-//import SignIn from "../../components/SignIn";
+import SignIn from "../../components/Auth/SignIn";
+import Profil from "../../components/Auth/Profil";
 
 import "./landing.css";
 
@@ -10,7 +11,8 @@ export default () => (
       <p>
         Edit <code>src/App.js</code> and save to reload.
       </p>
-      {/* <SignIn /> */}
+      <SignIn />
+      <Profil />
     </header>
   </div>
 );

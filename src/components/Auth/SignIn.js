@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useFormik } from "formik";
 
-import { signIn } from "../redux/Auth/actions";
+import { signIn } from "../../redux/Auth/actions";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,6 @@ const SignIn = () => {
       password: "",
     },
     onSubmit: ({ username, password }, { setSubmitting }) => {
-      alert(JSON.stringify(values, null, 2));
       dispatch(signIn({ username, password }));
       setSubmitting(false);
     },

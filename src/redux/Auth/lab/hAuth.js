@@ -43,7 +43,9 @@ const useAmplifyAuth = () => {
       }
       try {
         if (isMounted) {
-          const data = await Auth.currentAuthenticatedUser();
+          const data = await Auth.currentAuthenticatedUser({
+            bypassCache: false, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
+          });
           if (data) {
             dispatch({
               type: "FETCH_USER_DATA_SUCCESS",

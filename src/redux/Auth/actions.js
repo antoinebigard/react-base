@@ -1,9 +1,10 @@
 import { Auth } from "aws-amplify";
 
 export const types = {
-  FETCH_USER_REQUEST: "FETCH_USER_REQUEST",
-  FETCH_USER_SUCCESS: "FETCH_USER_SUCCESS",
-  FETCH_USER_FAILURE: "FETCH_USER_FAILURE",
+  FETCH_USER_REQUEST: "auth/FETCH_USER_REQUEST",
+  FETCH_USER_SUCCESS: "auth/FETCH_USER_SUCCESS",
+  FETCH_USER_FAILURE: "auth/FETCH_USER_FAILURE",
+  SIGN_OUT: "auth/SIGN_OUT",
 };
 
 export const fetchUserRequest = () => ({
@@ -15,33 +16,16 @@ export const fetchUserSuccess = user => ({
   user,
 });
 
+export const signOutUserSuccess = () => ({
+  type: types.FETCH_USER_SUCCESS,
+});
+
 export const fetchUserFailure = error => ({
   type: types.FETCH_USER_FAILURE,
   error,
 });
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-export const fetchUsers = () => {
-  return dispatch => {
-    dispatch(fetchUserRequest());
-    async function fetchData() {
-      try {
-        await sleep(2000); // Test
-        const response = await fetch("https://jsonplaceholder.typicode.com/users/1", {
-          method: "GET",
-        });
-        const user = await response.json();
-        dispatch(fetchUserSuccess(user));
-      } catch (e) {
-        dispatch(fetchUserFailure(e.message || "Unexpected error"));
-      }
-    }
-    fetchData();
-  };
-};
+/* **** */
 
 export const signIn = ({ username, password }) => {
   return async dispatch => {
@@ -49,6 +33,18 @@ export const signIn = ({ username, password }) => {
     try {
       const user = await Auth.signIn(username, password);
       dispatch(fetchUserSuccess(user));
+    } catch (e) {
+      dispatch(fetchUserFailure(e.message || "Unexpected error"));
+    }
+  };
+};
+
+export const signOut = () => {
+  return async dispatch => {
+    dispatch(fetchUserRequest());
+    try {
+      await Auth.signOut();
+      dispatch(signOutUserSuccess());
     } catch (e) {
       dispatch(fetchUserFailure(e.message || "Unexpected error"));
     }
