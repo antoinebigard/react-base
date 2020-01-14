@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useFormik } from "formik";
+
+import { push } from "connected-react-router";
 
 import { signIn } from "../../redux/Auth/actions";
 
 const SignIn = () => {
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(push("/"));
+  // }, [dispatch]);
 
   const { values, handleSubmit, handleChange } = useFormik({
     initialValues: {
@@ -24,14 +30,16 @@ const SignIn = () => {
       <div>Sign In</div>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label for="username">User</Label>
+          <Label for="username">Username</Label>
           <Input type="text" name="username" id="username" onChange={handleChange} value={values.username} />
         </FormGroup>
         <FormGroup>
           <Label for="password">Password</Label>
           <Input type="password" name="password" id="password" onChange={handleChange} value={values.password} />
         </FormGroup>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Sign in</Button>
+        <Button type="button">Sign up</Button>
+        <Button type="button">Forgot password</Button>
       </Form>
     </div>
   );
