@@ -24,11 +24,11 @@ const SignIn = () => {
       <div>Sign In</div>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label for="exampleEmail">User</Label>
+          <Label for="username">User</Label>
           <Input type="text" name="username" id="username" onChange={handleChange} value={values.username} />
         </FormGroup>
         <FormGroup>
-          <Label for="examplePassword">Password</Label>
+          <Label for="password">Password</Label>
           <Input type="password" name="password" id="password" onChange={handleChange} value={values.password} />
         </FormGroup>
         <Button type="submit">Submit</Button>

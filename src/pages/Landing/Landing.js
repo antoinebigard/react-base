@@ -2,6 +2,7 @@ import React from "react";
 
 import SignIn from "../../components/Auth/SignIn";
 import Profil from "../../components/Auth/Profil";
+import ForceChangePassword from "../../components/Auth/ForceChangePassword";
 
 import "./landing.css";
 
@@ -13,6 +14,7 @@ export default () => (
       </p>
       <SignIn />
       <Profil />
+      <ForceChangePassword />
     </header>
   </div>
 );

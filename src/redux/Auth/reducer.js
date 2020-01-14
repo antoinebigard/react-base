@@ -4,6 +4,7 @@ const initialState = {
   isLoading: false,
   user: null,
   error: "",
+  passwordResetRequired: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,6 +27,13 @@ const reducer = (state = initialState, action) => {
         isLoading: false,
         user: null,
         error: action.error,
+      };
+    case actionsTypes.CHANGE_PASSWORD:
+      return {
+        ...state,
+        isLoading: false,
+        user: action.user,
+        passwordResetRequired: true,
       };
     case actionsTypes.SIGN_OUT:
       return {
