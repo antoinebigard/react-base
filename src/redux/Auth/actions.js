@@ -1,23 +1,56 @@
-// case "FETCH_USER_DATA_SUCCESS":
-// case "FETCH_USER_DATA_FAILURE":
-// case "RESET_USER_DATA":
+import { Auth } from "aws-amplify";
 
 export const types = {
-  INIT: "auth/INIT",
-  GET_USER: "auth/GET_USER",
-  SET_STATE: "auth/SET_STATE",
-  SIGN_UP: "auth/SIGN_UP",
-  SIGN_IN: "auth/SIGN_IN",
-  CONFIRMATION: "auth/CONFIRMATION",
-  SIGN_OUT: "auth/SIGN_OUT",
-  FORGOT_PASSWORD: "auth/FORGOT_PASSWORD",
-  CHANGE_PASSWORD: "auth/CHANGE_PASSWORD",
-  COMPLETE_NEW_PASSWORD: "auth/COMPLETE_NEW_PASSWORD",
+  FETCH_USER_REQUEST: "FETCH_USER_REQUEST",
+  FETCH_USER_SUCCESS: "FETCH_USER_SUCCESS",
+  FETCH_USER_FAILURE: "FETCH_USER_FAILURE",
 };
 
-export const init = () => ({
-  type: types.INIT,
+export const fetchUserRequest = () => ({
+  type: types.FETCH_USER_REQUEST,
 });
 
-//import { Auth } from 'aws-amplify';
-//Auth.signIn(username, password);
+export const fetchUserSuccess = user => ({
+  type: types.FETCH_USER_SUCCESS,
+  user,
+});
+
+export const fetchUserFailure = error => ({
+  type: types.FETCH_USER_FAILURE,
+  error,
+});
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export const fetchUsers = () => {
+  return dispatch => {
+    dispatch(fetchUserRequest());
+    async function fetchData() {
+      try {
+        await sleep(2000); // Test
+        const response = await fetch("https://jsonplaceholder.typicode.com/users/1", {
+          method: "GET",
+        });
+        const user = await response.json();
+        dispatch(fetchUserSuccess(user));
+      } catch (e) {
+        dispatch(fetchUserFailure(e.message || "Unexpected error"));
+      }
+    }
+    fetchData();
+  };
+};
+
+export const signIn = ({ username, password }) => {
+  return async dispatch => {
+    dispatch(fetchUserRequest());
+    try {
+      const user = await Auth.signIn(username, password);
+      dispatch(fetchUserSuccess(user));
+    } catch (e) {
+      dispatch(fetchUserFailure(e.message || "Unexpected error"));
+    }
+  };
+};

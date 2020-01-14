@@ -1,6 +1,6 @@
 import React from "react";
 
-import UserContainer from "../../components/UserContainer";
+import SignIn from "../../components/SignIn";
 
 import "./landing.css";
 
@@ -13,7 +13,7 @@ export default () => (
       <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
         Learn React
       </a>
-      <UserContainer />
+      <SignIn />
     </header>
   </div>
 );

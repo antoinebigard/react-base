@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
-import testReducer from "./TestAsync/reducer";
+import Auth from "./Auth/reducer";
 
 const appState = {
-  user: testReducer,
+  user: Auth,
 };
 
 export default history =>
