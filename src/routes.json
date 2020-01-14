@@ -1,4 +1,6 @@
 {
     "NOTFOUND": "/404",
-    "SIGNIN": "/signin"
+    "SIGNIN": "/signin",
+    "CHANGEPASSWORD": "/changepassword",
+    "PROFILE": "/profile"
 }
