@@ -5,6 +5,7 @@ import "./footer.css";
 const Footer = () => {
   return (
     <footer className="footerNav">
+      <section className="name">Name.</section>
       <section className="sitemap">
         <div>
           <h5>SiteName</h5>
