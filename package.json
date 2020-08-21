@@ -5,7 +5,7 @@
   "dependencies": {
     "@sentry/browser": "5.13.0",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "^10.4.9",
     "@testing-library/user-event": "^8.0.3",
     "aws-amplify": "^2.2.2",
     "bootstrap": "^4.4.1",
